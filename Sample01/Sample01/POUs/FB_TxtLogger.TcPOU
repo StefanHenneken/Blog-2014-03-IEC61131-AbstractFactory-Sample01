@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.0.24">
+  <POU Name="FB_TxtLogger" Id="{75be9b59-4460-43c6-bf14-70c2bdef8ea6}">
+    <Declaration><![CDATA[{attribute 'enable_dynamic_creation'}
+FUNCTION_BLOCK FB_TxtLogger IMPLEMENTS ILogger
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="Write" Id="{eebd0b9d-b1b4-45b5-85bf-6b4d920e6a98}">
+      <Declaration><![CDATA[METHOD PUBLIC Write : STRING
+VAR_INPUT
+	sMsg      : STRING;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[Write := CONCAT('txt-', sMsg);
+// open txt file
+// write the message into the txt file
+// close txt file]]></ST>
+      </Implementation>
+    </Method>
+    <ObjectProperties />
+  </POU>
+</TcPlcObject>
